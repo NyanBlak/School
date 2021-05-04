@@ -1,4 +1,5 @@
 import pygame
+import os
 vec = pygame.math.Vector2
 
 size = WIDTH, HEIGHT = 1000, 500
@@ -6,10 +7,13 @@ PLAYER_ACC = 10
 PLAYER_GRAV = .7
 START_POS = 40, HEIGHT/2
 
+path = os.getcwd() + "/"
+print(path)
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("character.png")
+        self.image = pygame.image.load(path + "character.png")
         self.image = pygame.transform.smoothscale(self.image, (60, 60))
         self.rect = self.image.get_rect()
         self.rect.center = (START_POS)
@@ -57,7 +61,7 @@ class Player(pygame.sprite.Sprite):
 class Platform(pygame.sprite.Sprite):
     def __init__(self, x, y, w, h):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("platform.png")
+        self.image = pygame.image.load(path + "platform.png")
         #self.image = pygame.transform.smoothscale(self.image, (60, 60))
         self.rect = self.image.get_rect()
         self.rect.y = y

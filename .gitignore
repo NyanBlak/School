@@ -1,1 +1,5 @@
 *.code-workspace
+build
+dist
+setup.py
+.DS_Store
